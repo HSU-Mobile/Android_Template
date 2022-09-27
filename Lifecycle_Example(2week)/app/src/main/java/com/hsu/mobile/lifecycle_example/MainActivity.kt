@@ -16,6 +16,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.next_btn).setOnClickListener {
             startActivity(Intent(this, NextActivity::class.java))
         }
+
+        findViewById<Button>(R.id.fragment_test_btn).setOnClickListener {
+            startActivity(Intent(this, FragmentTestActivity::class.java))
+        }
     }
 
     override fun onStart() {
