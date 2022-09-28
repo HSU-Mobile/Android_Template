@@ -20,15 +20,35 @@ class FragmentTestActivity : AppCompatActivity() {
             .replace(R.id.fragment_view, TestFragment.newInstance())
             .commit()
 
-        findViewById<Button>(R.id.fragment_test1_btn).setOnClickListener {
+        findViewById<Button>(R.id.fragment_test1_add_btn).setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_view, TestFragment.newInstance())
+                .add(R.id.fragment_view, TestFragment.newInstance())
                 .commit()
         }
 
-        findViewById<Button>(R.id.fragment_test2_btn).setOnClickListener {
+        findViewById<Button>(R.id.fragment_test2_add_btn).setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_view, Test2Fragment.newInstance())
+                .add(R.id.fragment_view, Test2Fragment.newInstance())
+                .commit()
+        }
+
+        findViewById<Button>(R.id.fragment_test3_replace_btn).setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_view, Test3Fragment.newInstance())
+                .commit()
+        }
+
+        findViewById<Button>(R.id.fragment_test2_backstack_btn).setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_view, TestFragment.newInstance())
+                .addToBackStack("TEST1")
+                .commit()
+        }
+
+        findViewById<Button>(R.id.fragment_test2_backstack_btn).setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_view, Test2Fragment.newInstance())
+                .addToBackStack("TEST2")
                 .commit()
         }
     }
